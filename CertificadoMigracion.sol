@@ -28,7 +28,7 @@ contract CertificateVerifier {
         require(signer != address(0), "Firma no valida");
 
         // Verificar la prueba de Merkle
-        require(MerkleProof.verify(_proof, certificates[_pdfHash].merkleRoot, _leaf), "Prueba de Merkle no válida");
+        require(MerkleProof.verify(_proof, certificates[_pdfHash].merkleRoot, _leaf), "Prueba de Merkle no valida");
 
         // El certificado es válido si la firma y la prueba de Merkle son válidas
         return true;
