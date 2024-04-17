@@ -1,54 +1,53 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.6.0;
+pragma solidity ^0.8.0;
 
-import "./MerkleProof.sol";
-import "./ECDSA.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
-contract CertificateValidator {
-    using ECDSA for address;
-
-    // Dirección del firmante
-    address public signerAddress;
-
-    // Árbol Merkle de certificados revocados
-    mapping(bytes32 => bool) public revokedCertificates;
-
-    constructor(address _signerAddress) {
-        signerAddress = _signerAddress;
+contract CertificateVerifier {
+    // Estructura para almacenar los datos del certificado
+    struct Certificate {
+        string pdfHash; // Hash del certificado PDF
+        bytes32 merkleRoot; // Raíz del árbol de Merkle
+        bytes signature; // Firma ECDSA
     }
 
-    // Función para validar un certificado PDF
-    function validateCertificate(bytes memory pdfData, bytes memory signature, bytes32[] memory merkleProof) public view returns (bool) {
-        // Extraer el hash del documento
-        bytes32 documentHash = keccak256(pdfData);
+    // Almacena los certificados emitidos
+    mapping(string => Certificate) certificates;
 
-        // Validar la firma digital
-        if (!verifySignature(documentHash, signature)) {
-            return false;
-        }
+    // Función para almacenar un nuevo certificado
+    function storeCertificate(string memory _pdfHash, bytes32 _merkleRoot, bytes memory _signature) public {
+        certificates[_pdfHash] = Certificate(_pdfHash, _merkleRoot, _signature);
+    }
 
-        // Validar la revocación
-        if (revokedCertificates[documentHash]) {
-            return false;
-        }
+    // Función para verificar la autenticidad de un certificado
+    function verifyCertificate(string memory _pdfHash, bytes32[] memory _proof, bytes32 _leaf) public view returns (bool) {
+        // Verificar la firma ECDSA
+        address signer = recoverSigner(_pdfHash, certificates[_pdfHash].signature);
+        require(signer != address(0), "Firma no valida");
 
-        // Verificar el hash del documento en el árbol Merkle
-        if (!MerkleProof.verify(merkleProof, getMerkleRoot(), documentHash)) {
-            return false;
-        }
+        // Verificar la prueba de Merkle
+        require(MerkleProof.verify(_proof, certificates[_pdfHash].merkleRoot, _leaf), "Prueba de Merkle no válida");
 
+        // El certificado es válido si la firma y la prueba de Merkle son válidas
         return true;
     }
 
-    // Función para verificar la firma digital
-    function verifySignature(bytes32 hash, bytes memory signature) private view returns (bool) {
-        return hash.recover(signature) == signerAddress;
-    }
+    // Función para recuperar el firmante de un mensaje mediante ECDSA
+    function recoverSigner(string memory _message, bytes memory _signature) internal pure returns (address) {
+        bytes32 r;
+        bytes32 s;
+        uint8 v;
 
-    // Función para obtener la raíz del árbol Merkle
-    function getMerkleRoot() private view returns (bytes32) {
-        // Implementar la lógica para obtener la raíz del árbol Merkle
-        // La raíz del árbol Merkle se puede almacenar en un contrato separado o recuperarse de una fuente externa
-        return bytes32(0);
+        // Recuperar los componentes de la firma
+        assembly {
+            r := mload(add(_signature, 32))
+            s := mload(add(_signature, 64))
+            v := byte(0, mload(add(_signature, 96)))
+        }
+
+        // Recuperar el firmante utilizando ECDSA
+        return ecrecover(keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32", keccak256(abi.encodePacked(_message)))), v, r, s);
     }
 }
