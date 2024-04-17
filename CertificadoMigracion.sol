@@ -1,62 +1,54 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity >=0.6.0;
 
 import "./MerkleProof.sol";
 import "./ECDSA.sol";
 
+contract CertificateValidator {
+    using ECDSA for address;
 
-contract CertificateRegistry {
+    // Dirección del firmante
+    address public signerAddress;
 
-    struct Certificate {
-        bytes32 rootHash; // Hash de la raíz del árbol Merkle
-        bytes32 merkleProof; // Prueba de Merkle para el certificado
-        address issuer; // Dirección del emisor del certificado
-        address recipient; // Dirección del destinatario del certificado
-        string data; // Datos del certificado
-        uint256 timestamp; // Fecha y hora de emisión del certificado
+    // Árbol Merkle de certificados revocados
+    mapping(bytes32 => bool) public revokedCertificates;
+
+    constructor(address _signerAddress) {
+        signerAddress = _signerAddress;
     }
 
-    mapping(address => Certificate) private certificates;
+    // Función para validar un certificado PDF
+    function validateCertificate(bytes memory pdfData, bytes memory signature, bytes32[] memory merkleProof) public view returns (bool) {
+        // Extraer el hash del documento
+        bytes32 documentHash = keccak256(pdfData);
 
-    event CertificateIssued(address issuer, address recipient, uint256 timestamp);
-
-    function issueCertificate(
-        address recipient,
-        string memory data
-    ) public {
-        bytes32 rootHash = getRootHash();
-        bytes32 merkleProof = getMerkleProof(recipient);
-
-        certificates[recipient] = Certificate({
-            rootHash: rootHash,
-            merkleProof: merkleProof,
-            issuer: msg.sender,
-            recipient: recipient,
-            data: data,
-            timestamp: block.timestamp
-        });
-
-        emit CertificateIssued(msg.sender, recipient, block.timestamp);
-    }
-
-    function verifyCertificate(
-        address recipient
-    ) public view returns (bool) {
-        Certificate storage certificate = certificates[recipient];
-
-        if (certificate.recipient == address(0)) {
+        // Validar la firma digital
+        if (!verifySignature(documentHash, signature)) {
             return false;
         }
 
-        bytes32 calculatedRootHash = verifyMerkleProof(
-            certificate.rootHash,
-            certificate.merkleProof,
-            recipient
-        );
+        // Validar la revocación
+        if (revokedCertificates[documentHash]) {
+            return false;
+        }
 
-        return calculatedRootHash == certificate.rootHash;
+        // Verificar el hash del documento en el árbol Merkle
+        if (!MerkleProof.verify(merkleProof, getMerkleRoot(), documentHash)) {
+            return false;
+        }
+
+        return true;
     }
 
-    // Funciones para calcular el hash de la raíz del árbol Merkle y verificar la prueba de Merkle
-    // ...
+    // Función para verificar la firma digital
+    function verifySignature(bytes32 hash, bytes memory signature) private view returns (bool) {
+        return hash.recover(signature) == signerAddress;
+    }
+
+    // Función para obtener la raíz del árbol Merkle
+    function getMerkleRoot() private view returns (bytes32) {
+        // Implementar la lógica para obtener la raíz del árbol Merkle
+        // La raíz del árbol Merkle se puede almacenar en un contrato separado o recuperarse de una fuente externa
+        return bytes32(0);
+    }
 }
