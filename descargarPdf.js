@@ -1,6 +1,6 @@
 const fs = require('fs');
 const web3 = require('web3');
-const HttpProvider = Web3.providers.HttpProvider;
+const HttpProvider = web3.providers.HttpProvider;
 const Certificate = require('./Contract_sol_Certificate.abi').abi;
 
 const provider = new HttpProvider('http://127.0.0.1:8545');
