@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
-import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
-import "@openzeppelin/contracts/utils/Strings.sol";
+import "./.deps/npm/@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "./.deps/npm/@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
+import "./.deps/npm/@openzeppelin/contracts/utils/Strings.sol";
 
 contract CertificateVerifier {
     // Estructura para almacenar los datos del certificado
