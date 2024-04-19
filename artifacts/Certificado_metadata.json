@@ -1,0 +1,93 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_destinatario",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_nombre",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_fechaEmision",
+						"type": "string"
+					}
+				],
+				"name": "emitirCertificado",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_destinatario",
+						"type": "address"
+					}
+				],
+				"name": "obtenerDatosCertificado",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"GenerarPdf.sol": "Certificado"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"GenerarPdf.sol": {
+			"keccak256": "0x0dfe87fd83e580b6bea7e524fd2fc26183b4ee71a35a991ee8f1746bda1e2def",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0950702b845cf746edea4ab53b884aa84bac5c8eefcd82d509065f03b6787fc6",
+				"dweb:/ipfs/Qmcr3KViQ9xWZMgiMxJw96SkSvrXHcHTJVSSMuCCxsHCpz"
+			]
+		}
+	},
+	"version": 1
+}
