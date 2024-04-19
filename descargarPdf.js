@@ -3,7 +3,7 @@ const web3 = require('web3');
 const HttpProvider = web3.providers.HttpProvider;
 const Certificate = require('./Contract_sol_Certificate.abi').abi;
 
-const provider = new HttpProvider('http://127.0.0.1:8545');
+const provider = HttpProvider('http://127.0.0.1:8545');
 const web3Instance = new web3(provider);
 
 const contractAddress = '0xdecf98879b05e0fbf586a5013ad7913ee71cc156'; // Dirección del contrato inteligente
