@@ -1,6 +1,6 @@
 const fs = require('fs');
 const web3 = require('web3');
-const Certificate = require('./artifacts/contracts/Certificate.sol').abi;
+const Certificate = require('./Contract.sol').abi;
 
 const provider = new web3.providers.HttpProvider('HTTP://127.0.0.1:8545');
 const web3Instance = new web3(provider);
