@@ -5,7 +5,7 @@ const Certificate = require('./artifacts/contracts/Certificate.sol').abi;
 const provider = new web3.providers.HttpProvider('HTTP://127.0.0.1:8545');
 const web3Instance = new web3(provider);
 
-const contractAddress = '0x...'; // Dirección del contrato inteligente
+const contractAddress = '0xdecf98879b05e0fbf586a5013ad7913ee71cc156'; // Dirección del contrato inteligente
 const certificateContract = new web3Instance.eth.Contract(Certificate, contractAddress);
 
 async function downloadCertificate() {
