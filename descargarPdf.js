@@ -1,5 +1,5 @@
 const fs = require('fs');
-const Web3 = require('web3');
+const { Web3 } = require('web3');
 const HttpProvider = Web3.providers.HttpProvider;
 const Certificate = require('./Contract_sol_Certificate.abi').abi;
 
