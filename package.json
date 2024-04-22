@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "http": "^0.0.1-security",
-    "solc": "^0.8.25",
-    "solidity": "^0.0.1",
-    "web3": "^4.8.0"
-  }
-}
