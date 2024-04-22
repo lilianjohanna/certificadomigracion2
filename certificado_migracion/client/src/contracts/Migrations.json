@@ -59,7 +59,7 @@
   "sourceMap": "66:311:0:-;;;218:50;8:9:-1;5:2;;;30:1;27;20:12;5:2;218:50:0;253:10;245:5;;:18;;;;;;;;;;;;;;;;;;66:311;;;;;;",
   "deployedSourceMap": "66:311:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:311:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;114:36;;;:::i;:::-;;;;;;;;;;;;;;;;;;;90:20;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;272:103;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;272:103:0;;;;;;;;;;;;;;;;;:::i;:::-;;114:36;;;;:::o;90:20::-;;;;;;;;;;;;;:::o;272:103::-;201:5;;;;;;;;;;;187:19;;:10;:19;;;183:26;;;361:9;334:24;:36;;;;183:26;272:103;:::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.21 <0.7.0;\n\ncontract Migrations {\n  address public owner;\n  uint public last_completed_migration;\n\n  modifier restricted() {\n    if (msg.sender == owner) _;\n  }\n\n  constructor() public {\n    owner = msg.sender;\n  }\n\n  function setCompleted(uint completed) public restricted {\n    last_completed_migration = completed;\n  }\n}\n",
-  "sourcePath": "C:\\Users\\ASUS\\Documents\\PATO\\Tesis\\M-dulo-de-software-de-VCDA-por-Blockchain\\contracts\\Migrations.sol",
+  "sourcePath": "/workspaces/certificadomigracion2/certificado_migracion/contracts/Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -960,10 +960,16 @@
       "links": {},
       "address": "0x1049738C673B53DF1A4fB1F42137b89c0DC72770",
       "transactionHash": "0xf05d129685c436a5fd98ece5bbc62de77b198083eaf8988543180c56e9736ea6"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xaAaB4Bd45D6B2b3FdE146023aF07C5C647F02f58",
+      "transactionHash": "0xa2c6343870669ce57f92cfb9497efc1363743e33c16fd35a7dc6bcd3a72dc956"
     }
   },
-  "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-12T22:14:53.504Z",
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2024-04-22T22:06:40.103Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
