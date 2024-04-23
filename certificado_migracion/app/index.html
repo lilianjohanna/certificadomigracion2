@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+
+  <script defer src="./web3.min.js"></script>
+  <script defer src="./ethers.min.js"></script>
+  <script defer src="./ipfs.min.js"></script>
+  <script defer src="./orbitdb.min.js"></script>
+  <script defer src="./detect-provider.min.js"></script>
+  <script defer src="./jquery.min.js"></script>
+
+
+  <!--script defer src="./truffle-contract.min.js"></script-->
+  <!-- ONLY FOR DEVELOPMENT -->
+  <!--script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+  <script defer src="https://unpkg.com/ipfs@^0.52/dist/index.min.js"></script>
+  <script defer src="https://unpkg.com/orbit-db@0.26.1/dist/orbitdb.min.js"></script>
+  <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+  <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.0/web3.min.js"></script-->
+
+  <script defer type="text/javascript" src="./sign.js"></script>
+  <script defer type="text/javascript" src="./utils.js"></script>
+  <script defer type="text/javascript" src="./verify.js"></script>
+  <script defer type="text/javascript" src="./record_verification.js"></script>
+  <script defer type="text/javascript" src="./store.js"></script>
+  <script defer type="text/javascript" src="./contract_connection.js"></script>
+  <script defer type="text/javascript" src="./download.js"></script>
+  <script defer type="text/javascript" src="./update.js"></script>
+  <script defer type="text/javascript" src="./orbit_start.js"></script> 
+  <script defer type="text/javascript" src="./offchain.js"></script>
+  <script defer type="text/javascript" src="./display_tables.js"></script>
+  <script defer type="text/javascript" src="./close_session.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  
+  <br/>
+  
+  <h1>Blockchain based academic record verification app</h1>
+
+</head>
+
+<body>
+
+  <br/>
+  <div class="heading" >
+    <div id="accountBar" style="display: none;">Current account: <b id="actualAccount"></b></div>
+    <button class id="btnConnect" type="button">
+      Connect
+    </button>
+    <div id="contractAddress"></div>
+  </div>
+
+  <div class="forms center"  id="closeForm" style="display: block;">
+    <fieldset><legend>More options</legend>
+      <form class="form">
+        <button id="btnClose" style="display: block;" type="button">
+          Log out
+        </button>
+      </form>
+    </fieldset>
+  </div>
+
+  <div class="forms center">
+    <fieldset><legend>Verify academic record</legend>
+      <form id="upload" class="form">
+        <input type="file" id="file">
+        <button>Verify</button>
+        <br/>
+        <a id="checkRecordResult"></a>
+      </form>
+    </fieldset>
+  </div>
+
+  <div class="forms center">
+    <fieldset><legend>Sign text</legend>
+      <form id="signForm" class="form">
+        <div class="inputContainer">
+          <textarea required id="message" type="text" name="message" placeholder="Text..."></textarea>
+        </div>
+        <button type="submit">
+          Sign
+        </button>
+
+        <footer id="signFooter" style="display: none;">
+          <br/>
+          <b>Signature: </b>
+          <a id="signatureDisplay"></a>
+          <br/>
+          <b>Public key: </b>
+          <a id="addressDisplay"></a>
+          <div id="signedMessage"></div>
+        </footer>
+
+      </form>
+    </fieldset>
+  </div>
+
+  <div class="forms center">
+    <fieldset><legend>Verify signature</legend>
+
+      <form id="verifyForm" class="form">
+
+        <main>
+          <div>
+            <div>
+              <textarea required type="text" name="message"
+                placeholder="Text..."></textarea>
+            </div>
+            <div>
+              <textarea required type="text" name="signature"
+                placeholder="Signature..."></textarea>
+            </div>
+            <div>
+              <input required type="text" name="address"
+                placeholder="Public key..."
+                value=""/>
+            </div>
+          </div>
+        </main>
+
+        <footer>
+          <button type="submit">
+            Verify signature
+          </button>
+          <br/><br/>
+          <a id="validSignature"></a>
+          <a id="recordExists"></a>
+          <img id="loading" src="./loader.gif" style="display: none;"></img>
+          <a id="recordInserted"></a>
+        </footer>
+
+      </form>
+
+      <a id="btnDownload" style="display: none;" class="forms centered">Download</a> 
+
+
+      <div id="studentData" style="display: none;" class="center"></div>
+
+
+      <div id="verifyTable" style="display: none;" class="center styled-table"></div>
+      
+
+
+    </fieldset>
+  </div>
+
+  <div class="forms center" id="updateForm" style="display: none;">
+    <fieldset><legend>Update academic records</legend>
+      <form  class="form" >
+        <button id="btnSetChanges">Check updates</button>
+        <a id="updateResult"></a>
+        <!--button id="btnAcceptChanges">Confirm changes</button-->
+        <div id="updatesTable"></div>
+
+      </form>
+    </fieldset>
+  </div>
+
+  <div class="forms center" id="moreOptionsForm" style="display: none;">
+    <fieldset><legend>More options...</legend>
+      <form  class="form">
+        <button id="btnMakeChanges">Make changes</button>
+        <!--button id="btnShowAll">See all records</button-->
+        <div id="totalTable" class="classTable"></div>
+      </form>
+    </fieldset>
+  </div>
+
+
+
+</body>
+
+<footer>
+
+</footer>
+
+</html>

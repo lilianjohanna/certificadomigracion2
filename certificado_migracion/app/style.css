@@ -1,0 +1,91 @@
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 10%;
+  }
+  
+  .centered {
+	text-align: center;
+  }
+
+  h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	display: block;
+	background: #d60d8c;
+	padding: 1px 8px;
+	color: #ffffff;
+  }
+
+.center {
+  position: absolute; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.heading{
+	font-weight: bold;	
+	font-size: 15px;
+	padding-bottom: 3px;
+	border-bottom: 3px solid #d60d8c;
+	margin-bottom: 15px;
+}
+
+.forms{
+	max-width: 450px;
+	font-family: Arial, Helvetica, sans-serif;
+	position: relative;
+	margin-top: 20px;
+}
+
+b {
+	word-break: break-all;
+	color: #d60d8c;
+	font-weight: bold;
+}
+
+p {
+	word-break: break-all;
+}
+
+a {
+	word-break: break-all;
+	color: #F072A0;
+}
+
+.forms fieldset{
+	border: 2px solid #FFD2D0;
+	padding: 20px;
+	background: #fff9f9;
+}
+.forms fieldset legend{
+	color: #d60d8c;
+}
+.forms textarea{
+	width:250px;
+	height:100px;
+}
+.forms input[type=text],
+.forms select, 
+.forms textarea{
+	border-radius: 3px;
+	border: 1px solid #d60d8c;
+	outline: none;
+	color: #d60d8c;
+	padding: 5px 8px 5px 8px;
+	background: #fff9f9;
+	width:50%;
+}
+.forms  input[type=submit],
+.forms  input[type=button],
+.forms  button{	
+	border-radius: 2px;
+	font-weight: bold;
+	margin-top: 5px;
+	background: #EB3B88;
+	border: 1px solid #EB3B90;
+	padding: 5px 15px 5px 15px;
+	color: #f0f0f0;
+
+}
