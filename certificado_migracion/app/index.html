@@ -65,7 +65,7 @@
 
   <div class="forms center">
     <fieldset><legend>Ingrese el tipo y número de documento:</legend>
-      <form id="upload" class="form">
+      <form id="upload" class="form" action="./generarpdf.php">
         <select name="tipodoc" id="tipodoc" required>
           <option selected>----</option>
           <option value="1">Cédula de ciudadanía</option>
@@ -75,7 +75,7 @@
         <!--input type="file" id="file"-->
         <button type="submit">Buscar</button>
         <br/>
-        <a id="checkRecordResult"></a>
+        <a id="$_GET['mensaje']"></a>
       </form>
     </fieldset>
   </div>
