@@ -15,4 +15,5 @@ const app = document.querySelector('#upload');
 
 if (app) {
     app.addEventListener("submit", handleUpload);
+	document.getElementById('checkRecordResult').innerHTML = 'Campos obligatorios';
   }
