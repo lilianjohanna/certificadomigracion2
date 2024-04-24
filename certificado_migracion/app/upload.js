@@ -1,4 +1,4 @@
-function handleSubmit (event) {
+/*function handleSubmit (event) {
 
 	event.preventDefault();
 	if (!file.value.length) return;
@@ -6,7 +6,7 @@ function handleSubmit (event) {
 	reader.readAsDataURL(file.files[0]);
     console.log(file.files[0]);
 
-}
+}*/
 function handleUpload (event) {
 	event.alert('Hola mundo');
 
