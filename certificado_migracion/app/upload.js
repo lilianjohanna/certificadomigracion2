@@ -12,7 +12,7 @@ function handleUpload (event) {
 	alert('Hola mundo');
 
 }
-let app = document.querySelector('#upload');
+const app = document.querySelector('#upload');
 
 if (app) {
     app.addEventListener("submit", handleUpload);
