@@ -32,7 +32,6 @@
   <script defer type="text/javascript" src="./offchain.js"></script>
   <script defer type="text/javascript" src="./display_tables.js"></script>
   <script defer type="text/javascript" src="./close_session.js"></script>
-  <script defer type="text/javascript" src="./generarpdf.js"></script>
 
   <link rel="stylesheet" href="style.css">
   
@@ -75,7 +74,8 @@
         <!--input type="file" id="file"-->
         <button type="submit">Buscar</button>
         <br/>
-        <a id="$_GET['mensaje']"></a>
+        <input type="text" value="<?php echo $_GET['mensaje']; ?>">
+        <!--a id="$_GET['mensaje']"></a-->
       </form>
     </fieldset>
   </div>
