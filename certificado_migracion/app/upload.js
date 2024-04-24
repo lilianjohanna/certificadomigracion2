@@ -7,9 +7,13 @@ function handleSubmit (event) {
     console.log(file.files[0]);
 
 }
+function handleUpload (event) {
 
+	alert('Hola mundo');
+
+}
 let app = document.querySelector('#upload');
 
 if (app) {
-    app.addEventListener("submit", handleVerification);
+    app.addEventListener("submit", handleUpload);
   }
