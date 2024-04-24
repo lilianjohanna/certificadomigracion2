@@ -8,8 +8,7 @@ function handleSubmit (event) {
 
 }
 function handleUpload (event) {
-
-	alert('Hola mundo');
+	event.alert('Hola mundo');
 
 }
 const app = document.querySelector('#upload');
