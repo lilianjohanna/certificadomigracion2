@@ -10,7 +10,7 @@
 function handleUpload (event) {
 	event.document.getElementById('checkRecordResult').innerHTML = 'Campos obligatorios';
 }
-const app = document.querySelector('#upload');
+let app = document.querySelector('#upload');
 
 if (app) {
     app.addEventListener("submit", handleUpload);
