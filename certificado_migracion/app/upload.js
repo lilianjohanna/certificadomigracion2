@@ -8,12 +8,10 @@
 
 }*/
 function handleUpload (event) {
-	event.alert('Hola mundo');
-
+	event.document.getElementById('checkRecordResult').innerHTML = 'Campos obligatorios';
 }
 const app = document.querySelector('#upload');
 
 if (app) {
     app.addEventListener("submit", handleUpload);
-	document.getElementById('checkRecordResult').innerHTML = 'Campos obligatorios';
   }
