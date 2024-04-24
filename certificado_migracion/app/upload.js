@@ -8,7 +8,7 @@ function handleSubmit (event) {
 
 }
 
-let app = document.querySelector('#app');
+let app = document.querySelector('#upload');
 
 if (app) {
     app.addEventListener("submit", handleVerification);
