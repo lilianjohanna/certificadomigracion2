@@ -31,6 +31,7 @@ contract Record {
 
     function getRecord(uint256 _id) public view returns (uint256){
             return records[_id];
+            return records[_recordHash];
     }
     
 }
