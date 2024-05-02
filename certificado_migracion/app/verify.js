@@ -21,7 +21,7 @@ const handleVerification = async (e) => {
   });
 
   if (isValid) {
-    document.getElementById('validSignature').innerHTML = "♦ Correct sign. Checking key existence... <br/>";
+    document.getElementById('validSignature').innerHTML = "♦ Envío de solicitud correcta, verificando la existencia de la clave... <br/>";
 
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
@@ -29,19 +29,19 @@ const handleVerification = async (e) => {
     const record = NPP.getRecordByPubk(account);
 
     if (record == undefined) {
-      document.getElementById('validSignature').innerHTML = "♦ Your public key does not match with any academic record. <br/>";
+      document.getElementById('validSignature').innerHTML = "♦ Su clave pública no coincide con algún certificado. <br/>";
       return;
     }
 
-    document.getElementById('validSignature').innerHTML = "♦ Detected record in the university database. <br/>";
+    document.getElementById('validSignature').innerHTML = "♦ Certificado detectado. <br/>";
 
     if (record.role == "1" ) {
       sessionStorage.setItem('activeUserRole', record.role);
 
       if (record.txHash == ""){
-        document.getElementById('recordExists').innerHTML = "♦ Academic record not traced by the blockchain. You have to wait for the approval. Come back later.<br/>";
+        document.getElementById('recordExists').innerHTML = "♦ Certificado no rastreado por el Bockchain. Hay que esperar la aprobación. Vuelva más tarde.<br/>";
       } else {
-        console.log("♦ Academic record ID not null, requesting information...");
+        console.log("♦ Certificado no nulo, solicitando información...");
         displayPaneToUser(record);
       }
     
@@ -51,7 +51,7 @@ const handleVerification = async (e) => {
     }
 
   } else {
-    document.getElementById('validSignature').innerHTML = "♦ Invalid signature, please try again.";
+    document.getElementById('validSignature').innerHTML = "♦ Firma digital inválida, inténtelo de nuevo.";
   }
 
 };
