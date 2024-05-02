@@ -45,18 +45,18 @@
 
   <br/>
   <div class="heading" >
-    <div id="accountBar" style="display: none;">Current account: <b id="actualAccount"></b></div>
+    <div id="accountBar" style="display: none;">Cuenta: <b id="actualAccount"></b></div>
     <button class id="btnConnect" type="button">
-      Connect
+      Conectar
     </button>
     <div id="contractAddress"></div>
   </div>
 
   <div class="forms center"  id="closeForm" style="display: block;">
-    <fieldset><legend>More options</legend>
+    <fieldset><legend>Más opciones</legend>
       <form class="form">
         <button id="btnClose" style="display: block;" type="button">
-          Log out
+          Cerrar
         </button>
       </form>
     </fieldset>
@@ -65,13 +65,7 @@
   <div class="forms center">
     <fieldset><legend>Ingrese el tipo y número de documento:</legend>
       <form id="upload" class="form">
-        <select name="tipodoc" id="tipodoc" required>
-          <option selected>----</option>
-          <option value="1">Cédula de ciudadanía</option>
-          <option value="2">Cédula de extranjería</option>
-        </select>
-        <input type="text" id="numdoc">        
-        <!--input type="file" id="file"-->
+        <input type="file" id="file">
         <button type="submit">Buscar</button>
         <br/>
         <a id="checkRecordResult"></a>
