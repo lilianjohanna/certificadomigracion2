@@ -2,7 +2,7 @@ const signMessage = async ({ message }) => {
     try {
       console.log({ message });
       if (!window.ethereum)
-        throw new Error("No wallet found.");
+        throw new Error("Billetera no encontrada.");
   
       await window.ethereum.send("eth_requestAccounts");
       const signer = PROVIDER.getSigner();
