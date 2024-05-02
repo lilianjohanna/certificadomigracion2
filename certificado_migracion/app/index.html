@@ -85,10 +85,7 @@
     <fieldset><legend><b>Solicitar firma digital</b></legend>
       <form id="signForm" class="form">
         <div class="inputContainer">
-          <?php
-          $fechasistema=date('Y-m-d');
-          ?>
-          <input required id="message" type="hidden" name="message" value="<?php echo $fechasistema; ?>" readonly>
+          <input required id="message" type="hidden" name="message" value="MensajeFirmaDigital" readonly>
         </div>
         <button type="submit">
           Enviar solicitud
