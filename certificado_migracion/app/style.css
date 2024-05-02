@@ -60,7 +60,7 @@ a {
 	background: #fff9f9;
 }
 .forms fieldset legend{
-	color: #d60d8c;
+	color: #000000;
 }
 .forms textarea{
 	width:250px;
@@ -70,9 +70,9 @@ a {
 .forms select, 
 .forms textarea{
 	border-radius: 3px;
-	border: 1px solid #d60d8c;
+	border: 1px solid #000000;
 	outline: none;
-	color: #d60d8c;
+	color: #000000;
 	padding: 5px 8px 5px 8px;
 	background: #fff9f9;
 	width:50%;
@@ -83,8 +83,8 @@ a {
 	border-radius: 2px;
 	font-weight: bold;
 	margin-top: 5px;
-	background: #EB3B88;
-	border: 1px solid #EB3B90;
+	background: #141694;
+	border: 1px solid #141694;
 	padding: 5px 15px 5px 15px;
 	color: #f0f0f0;
 
