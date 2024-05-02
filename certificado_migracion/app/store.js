@@ -6,12 +6,12 @@ async function storeRecord(dataHash) {
         await storeValue.wait();
         console.log(storeValue);
         document.getElementById('loading').setAttribute("style", "display: none;");
-        document.getElementById('recordInserted').innerHTML = "♦ The academic record was stored succesfully. <br/>";
+        document.getElementById('recordInserted').innerHTML = "♦ El certificado fue almacenado satisfactoriamente. <br/>";
         return storeValue.hash;
 
     } catch (error) {
         document.getElementById('loading').setAttribute("style", "display: none;");
-        document.getElementById('recordInserted').innerHTML = "♦ The academic record could not be stored. <br/>";
+        document.getElementById('recordInserted').innerHTML = "♦ El certificado no pudo ser almacenado. <br/>";
         console.log(error);
     }
 }
