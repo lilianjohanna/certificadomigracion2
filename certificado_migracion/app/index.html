@@ -93,10 +93,10 @@
 
         <footer id="signFooter" style="display: none;">
           <br/>
-          <b>Signature: </b>
+          <b>Firma: </b>
           <a id="signatureDisplay"></a>
           <br/>
-          <b>Public key: </b>
+          <b>Clave pública: </b>
           <a id="addressDisplay"></a>
           <div id="signedMessage"></div>
         </footer>
@@ -106,7 +106,7 @@
   </div>
 
   <div class="forms center">
-    <fieldset><legend>Verify signature</legend>
+    <fieldset><legend>Verificar firma</legend>
 
       <form id="verifyForm" class="form">
 
@@ -114,15 +114,15 @@
           <div>
             <div>
               <textarea required type="text" name="message"
-                placeholder="Text..."></textarea>
+                placeholder="Mensaje..."></textarea>
             </div>
             <div>
               <textarea required type="text" name="signature"
-                placeholder="Signature..."></textarea>
+                placeholder="Firma..."></textarea>
             </div>
             <div>
               <input required type="text" name="address"
-                placeholder="Public key..."
+                placeholder="Clave pública..."
                 value=""/>
             </div>
           </div>
@@ -130,7 +130,7 @@
 
         <footer>
           <button type="submit">
-            Verify signature
+            Verificar
           </button>
           <br/><br/>
           <a id="validSignature"></a>
