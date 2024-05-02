@@ -85,7 +85,7 @@
     <fieldset><legend><b>Solicitar firma digital</b></legend>
       <form id="signForm" class="form">
         <div class="inputContainer">
-          <input required id="message" type="hidden" name="message" value="MensajeFirma" readonly></textarea>
+          <input required id="message" type="hidden" name="message" value="MensajeFirmaDigital" readonly>
         </div>
         <button type="submit">
           Enviar solicitud
@@ -113,8 +113,7 @@
         <main>
           <div>
             <div>
-              <textarea required type="text" name="message"
-                placeholder="Mensaje..."></textarea>
+              <input type="hidden" name="message" value="MensajeFirmaDigital">
             </div>
             <div>
               <textarea required type="text" name="signature"
